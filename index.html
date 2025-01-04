@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Point Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            margin-bottom: 10px;
+        }
+
+        .section select, .section input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Point Calculator</h1>
+    <div class="container">
+        <!-- Main Tasks Section -->
+        <div class="section">
+            <h2>Main Tasks</h2>
+            <label for="main-work">Work (Choose the longest block completed):</label>
+            <select id="main-work">
+                <option value="0">Select</option>
+                <option value="1">30 mins (1 pt)</option>
+                <option value="3">60 mins (3 pts)</option>
+                <option value="5">2 hours (5 pts)</option>
+                <option value="9">3 hours (9 pts)</option>
+                <option value="14">5 hours (14 pts)</option>
+            </select>
+
+            <label for="main-study">Study (Choose the longest block completed):</label>
+            <select id="main-study">
+                <option value="0">Select</option>
+                <option value="1">15 mins (1 pt)</option>
+                <option value="1.5">30 mins (1.5 pts)</option>
+                <option value="2">45 mins (2 pts)</option>
+                <option value="3">60 mins (3 pts)</option>
+                <option value="6">2 hours (6 pts)</option>
+                <option value="10">3 hours (10 pts)</option>
+                <option value="14">4 hours (14 pts)</option>
+            </select>
+        </div>
+
+        <!-- Personal Tasks Section -->
+        <div class="section">
+            <h2>Personal Tasks</h2>
+            <label for="personal-selfcare">Self-Care (Longest time block):</label>
+            <select id="personal-selfcare">
+                <option value="0">Select</option>
+                <option value="1">5 mins (1 pt)</option>
+                <option value="2">10 mins (2 pts)</option>
+                <option value="3">30 mins (3 pts)</option>
+                <option value="6">1 hour (6 pts)</option>
+            </select>
+
+            <label for="personal-exercise">Exercise (Longest activity):</label>
+            <select id="personal-exercise">
+                <option value="0">Select</option>
+                <option value="1">Walk/Stretch (1 pt)</option>
+                <option value="2">Jog/Yoga (2 pts)</option>
+                <option value="3">Gym (3 pts)</option>
+            </select>
+
+            <label for="personal-cleaning">Cleaning (Choose the longest block):</label>
+            <select id="personal-cleaning">
+                <option value="0">Select</option>
+                <option value="1">Quick Clean (1 pt)</option>
+                <option value="2">Wash Clothes/Utensils (2 pts)</option>
+                <option value="3">Thorough Cleaning (3 pts)</option>
+            </select>
+        </div>
+
+        <!-- Basic Tasks Section -->
+        <div class="section">
+            <h2>Basic Tasks</h2>
+            <label for="basic-tasks">Basic Tasks Completed:</label>
+            <select id="basic-tasks">
+                <option value="0">Select</option>
+                <option value="0.2">Under 5 mins (0.2 pts)</option>
+                <option value="0.5">Under 10 mins (0.5 pts)</option>
+            </select>
+        </div>
+
+        <!-- Routine Section -->
+        <div class="section">
+            <h2>Routines</h2>
+            <label for="routine-morning">Morning Routine:</label>
+            <select id="routine-morning">
+                <option value="0">Not Completed</option>
+                <option value="0.2">Partially Completed (0.2 pts)</option>
+                <option value="0.5">Fully Completed (0.5 pts)</option>
+            </select>
+
+            <label for="routine-afternoon">Afternoon Routine:</label>
+            <select id="routine-afternoon">
+                <option value="0">Not Completed</option>
+                <option value="0.2">Partially Completed (0.2 pts)</option>
+                <option value="0.5">Fully Completed (0.5 pts)</option>
+            </select>
+
+            <label for="routine-night">Night Routine:</label>
+            <select id="routine-night">
+                <option value="0">Not Completed</option>
+                <option value="0.2">Partially Completed (0.2 pts)</option>
+                <option value="0.5">Fully Completed (0.5 pts)</option>
+            </select>
+        </div>
+
+        <button onclick="calculatePoints()">Calculate Total Points</button>
+
+        <div class="result" id="result">Total Points: 0</div>
+    </div>
+
+    <script>
+        function calculatePoints() {
+            // Get values from dropdowns
+            const mainWork = parseFloat(document.getElementById('main-work').value);
+            const mainStudy = parseFloat(document.getElementById('main-study').value);
+            const personalSelfCare = parseFloat(document.getElementById('personal-selfcare').value);
+            const personalExercise = parseFloat(document.getElementById('personal-exercise').value);
+            const personalCleaning = parseFloat(document.getElementById('personal-cleaning').value);
+            const basicTasks = parseFloat(document.getElementById('basic-tasks').value);
+            const routineMorning = parseFloat(document.getElementById('routine-morning').value);
+            const routineAfternoon = parseFloat(document.getElementById('routine-afternoon').value);
+            const routineNight = parseFloat(document.getElementById('routine-night').value);
+
+            // Calculate total points
+            const totalPoints = mainWork + mainStudy + personalSelfCare + personalExercise + personalCleaning + basicTasks + routineMorning + routineAfternoon + routineNight;
+
+            // Display total points
+            document.getElementById('result').innerText = `Total Points: ${totalPoints}`;
+        }
+    </script>
+</body>
+</html>
