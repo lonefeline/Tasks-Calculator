@@ -3,19 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Point Calculator</title>
+    <title>Task Calculator</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        .info-icon {
+            cursor: pointer;
+        }
+        .important-note {
+            font-size: 0.9em;
+            color: gray;
+        }
+    </style>
 </head>
 <body>
+    <header class="d-flex justify-content-between align-items-center p-3 bg-light">
+        <a href="#" class="text-decoration-none">Adopt Don't Shop</a>
+        <div>
+            <a href="#" class="text-decoration-none me-3">Guide</a>
+            <a href="#" class="text-decoration-none">GitHub Page</a>
+        </div>
+    </header>
+
     <div class="container mt-5">
         <h1 class="text-center mb-4">Task Point Calculator</h1>
+
         <!-- Main Tasks Section -->
         <div class="card mb-4">
             <div class="card-body">
-                <h2 class="card-title">Main Tasks</h2>
+                <h2 class="card-title">Main Tasks 
+                    <i class="info-icon bi bi-info-circle" data-bs-toggle="modal" data-bs-target="#mainTasksInfoModal"></i>
+                </h2>
                 <div class="mb-3">
-                    <label for="main-work" class="form-label">Work (Choose the longest block completed):</label>
+                    <label for="main-work" class="form-label">Work (Select working hours):</label>
                     <select id="main-work" class="form-select">
                         <option value="0">Select</option>
                         <option value="1">30 mins (1 pt)</option>
@@ -26,8 +46,8 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="main-study-watching" class="form-label">Study - Watching Lecture (Choose the longest block completed):</label>
-                    <select id="main-study-watching" class="form-select">
+                    <label for="main-study-lecture" class="form-label">Study - Lecture:</label>
+                    <select id="main-study-lecture" class="form-select">
                         <option value="0">Select</option>
                         <option value="1">15 mins (1 pt)</option>
                         <option value="1.5">30 mins (1.5 pts)</option>
@@ -38,7 +58,7 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="main-study-self" class="form-label">Study - Self Study (Choose the longest block completed):</label>
+                    <label for="main-study-self" class="form-label">Study - Self Study:</label>
                     <select id="main-study-self" class="form-select">
                         <option value="0">Select</option>
                         <option value="1">15 mins (1 pt)</option>
@@ -52,13 +72,15 @@
             </div>
         </div>
 
-        <!-- Personal Tasks Section -->
+        <!-- Self-Care Section -->
         <div class="card mb-4">
             <div class="card-body">
-                <h2 class="card-title">Personal Tasks</h2>
+                <h2 class="card-title">Self-Care 
+                    <i class="info-icon bi bi-info-circle" data-bs-toggle="modal" data-bs-target="#selfCareInfoModal"></i>
+                </h2>
                 <div class="mb-3">
-                    <label for="personal-meditation" class="form-label">Self-Care - Meditation (Longest time block):</label>
-                    <select id="personal-meditation" class="form-select">
+                    <label for="selfcare-meditation" class="form-label">Meditation (minutes):</label>
+                    <select id="selfcare-meditation" class="form-select">
                         <option value="0">Select</option>
                         <option value="1">5 mins (1 pt)</option>
                         <option value="2">10 mins (2 pts)</option>
@@ -67,32 +89,75 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="personal-journaling" class="form-label">Self-Care - Journaling (Longest time block):</label>
-                    <select id="personal-journaling" class="form-select">
+                    <label for="selfcare-reading" class="form-label">Reading Book (hours): 
+                        <span class="text-muted">(Audiobook also acceptable)</span>
+                    </label>
+                    <select id="selfcare-reading" class="form-select">
                         <option value="0">Select</option>
-                        <option value="1">5 mins (1 pt)</option>
-                        <option value="2">10 mins (2 pts)</option>
-                        <option value="3">30 mins (3 pts)</option>
-                        <option value="6">1 hour (6 pts)</option>
+                        <option value="1">30 mins (1 pt)</option>
+                        <option value="3">1 hour (3 pts)</option>
+                        <option value="6">2 hours (6 pts)</option>
+                        <option value="10">3 hours (10 pts)</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="personal-exercise" class="form-label">Exercise (Longest activity):</label>
-                    <select id="personal-exercise" class="form-select">
+                    <label for="selfcare-exercise" class="form-label">Exercise (Type):</label>
+                    <select id="selfcare-exercise" class="form-select">
                         <option value="0">Select</option>
-                        <option value="1">Walk/Stretch (1 pt)</option>
-                        <option value="2">Jog/Yoga (2 pts)</option>
+                        <option value="1">Walking (1 pt)</option>
+                        <option value="2">Jogging (2 pts)</option>
                         <option value="3">Gym (3 pts)</option>
+                        <option value="1">Yoga (1 pt)</option>
+                        <option value="1">Stretching (1 pt)</option>
                     </select>
                 </div>
-                <div class="mb-3">
-                    <label for="personal-cleaning" class="form-label">Cleaning (Choose the longest block):</label>
-                    <select id="personal-cleaning" class="form-select">
-                        <option value="0">Select</option>
-                        <option value="1">Quick Clean (1 pt)</option>
-                        <option value="2">Wash Clothes/Utensils (2 pts)</option>
-                        <option value="3">Thorough Cleaning (3 pts)</option>
-                    </select>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="selfcare-journaling">
+                    <label class="form-check-label" for="selfcare-journaling">
+                        Journaling 
+                        <span class="text-muted">(Writing about your day, emotions, and thoughts)</span>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="selfcare-emotion-tracking">
+                    <label class="form-check-label" for="selfcare-emotion-tracking">
+                        Emotion Tracking
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Tasks Section -->
+        <div class="accordion" id="personalTasksAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="personalTasksHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#personalTasksCollapse" aria-expanded="false" aria-controls="personalTasksCollapse">
+                        Personal Tasks
+                    </button>
+                </h2>
+                <div id="personalTasksCollapse" class="accordion-collapse collapse" aria-labelledby="personalTasksHeading" data-bs-parent="#personalTasksAccordion">
+                    <div class="accordion-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="personal-clean-room">
+                            <label class="form-check-label" for="personal-clean-room">Clean Room</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="personal-clean-bathroom">
+                            <label class="form-check-label" for="personal-clean-bathroom">Clean Bathroom</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="personal-cooked-food">
+                            <label class="form-check-label" for="personal-cooked-food">Cooked Food</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="personal-changed-bed-sheets">
+                            <label class="form-check-label" for="personal-changed-bed-sheets">Changed Bed Sheets</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="personal-wash-utensils">
+                            <label class="form-check-label" for="personal-wash-utensils">Wash Utensils</label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,77 +165,159 @@
         <!-- Basic Tasks Section -->
         <div class="card mb-4">
             <div class="card-body">
-                <h2 class="card-title">Basic Tasks</h2>
-                <div class="mb-3">
-                    <label for="basic-tasks" class="form-label">Basic Tasks Completed:</label>
-                    <select id="basic-tasks" class="form-select">
-                        <option value="0">Select</option>
-                        <option value="0.2">Under 5 mins (0.2 pts)</option>
-                        <option value="0.5">Under 10 mins (0.5 pts)</option>
-                    </select>
+                <h2 class="card-title">Basic Tasks 
+                    <i class="info-icon bi bi-info-circle" data-bs-toggle="modal" data-bs-target="#basicTasksInfoModal"></i>
+                </h2>
+                <p class="important-note">Only do it if you cannot do without accountability to keep it fair.</p>
+                <div class="accordion" id="basicTasksAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="basicTasksHeading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#basicTasksCollapse" aria-expanded="false" aria-controls="basicTasksCollapse">
+                                Basic Tasks
+                            </button>
+                        </h2>
+                        <div id="basicTasksCollapse" class="accordion-collapse collapse" aria-labelledby="basicTasksHeading" data-bs-parent="#basicTasksAccordion">
+                            <div class="accordion-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="basic-bath">
+                                    <label class="form-check-label" for="basic-bath">Bath</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="basic-wc">
+                                    <label class="form-check-label" for="basic-wc">WC</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="basic-washface">
+                                    <label class="form-check-label" for="basic-washface">Wash Face</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="basic-skincare-day">
+                                    <label class="form-check-label" for="basic-skincare-day">Skincare Day</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="basic-skincare-night">
+                                    <label class="form-check-label" for="basic-skincare-night">Skincare Night</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Routine Section -->
+        <!-- Routine Rituals Section -->
         <div class="card mb-4">
             <div class="card-body">
-                <h2 class="card-title">Routines</h2>
-                <div class="mb-3">
-                    <label for="routine-morning" class="form-label">Morning Routine:</label>
-                    <select id="routine-morning" class="form-select">
-                        <option value="0">Not Completed</option>
-                        <option value="0.2">Partially Completed (0.2 pts)</option>
-                        <option value="0.5">Fully Completed (0.5 pts)</option>
-                    </select>
+                <h2 class="card-title">Routine Rituals 
+                    <i class="info-icon bi bi-info-circle" data-bs-toggle="modal" data-bs-target="#routineRitualsInfoModal"></i>
+                </h2>
+                <p class="important-note">All tasks must be done simultaneously without skipping.</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="routine-morning">
+                    <label class="form-check-label" for="routine-morning">Morning Routine</label>
                 </div>
-                <div class="mb-3">
-                    <label for="routine-afternoon" class="form-label">Afternoon Routine:</label>
-                    <select id="routine-afternoon" class="form-select">
-                        <option value="0">Not Completed</option>
-                        <option value="0.2">Partially Completed (0.2 pts)</option>
-                        <option value="0.5">Fully Completed (0.5 pts)</option>
-                    </select>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="routine-afternoon">
+                    <label class="form-check-label" for="routine-afternoon">Afternoon Routine</label>
                 </div>
-                <div class="mb-3">
-                    <label for="routine-night" class="form-label">Night Routine:</label>
-                    <select id="routine-night" class="form-select">
-                        <option value="0">Not Completed</option>
-                        <option value="0.2">Partially Completed (0.2 pts)</option>
-                        <option value="0.5">Fully Completed (0.5 pts)</option>
-                    </select>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="routine-night">
+                    <label class="form-check-label" for="routine-night">Night Routine</label>
                 </div>
             </div>
         </div>
 
+        <!-- Buttons Section -->
         <div class="text-center">
-            <button class="btn btn-primary" onclick="calculatePoints()">Calculate Total Points</button>
+            <button class="btn btn-primary" onclick="calculatePoints()">Calculate Points</button>
+         
+            <button class="btn btn-secondary" onclick="copyAsCommand()">Copy as Command</button>
+            <button class="btn btn-danger" onclick="resetForm()">Reset</button>
         </div>
 
+        <!-- Result Display -->
         <div class="result text-center mt-4" id="result">Total Points: 0</div>
     </div>
 
+    <!-- Info Modals -->
+    <div class="modal fade" id="mainTasksInfoModal" tabindex="-1" aria-labelledby="mainTasksInfoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mainTasksInfoModalLabel">Main Tasks Info</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Information about main tasks and how to score them.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Modals (similar to above for each section) -->
+    
     <script>
-        function calculatePoints() {
-            // Get values from dropdowns
-            const mainWork = parseFloat(document.getElementById('main-work').value);
-            const mainStudyWatching = parseFloat(document.getElementById('main-study-watching').value);
-            const mainStudySelf = parseFloat(document.getElementById('main-study-self').value);
-            const personalMeditation = parseFloat(document.getElementById('personal-meditation').value);
-            const personalJournaling = parseFloat(document.getElementById('personal-journaling').value);
-            const personalExercise = parseFloat(document.getElementById('personal-exercise').value);
-            const personalCleaning = parseFloat(document.getElementById('personal-cleaning').value);
-            const basicTasks = parseFloat(document.getElementById('basic-tasks').value);
-            const routineMorning = parseFloat(document.getElementById('routine-morning').value);
-            const routineAfternoon = parseFloat(document.getElementById('routine-afternoon').value);
-            const routineNight = parseFloat(document.getElementById('routine-night').value);
+	let totalPoints = 0; // Global variable to store total points
 
-            // Calculate total points
-            const totalPoints = mainWork + mainStudyWatching + mainStudySelf + personalMeditation + personalJournaling + personalExercise + personalCleaning + basicTasks + routineMorning + routineAfternoon + routineNight;
+	function calculatePoints() {
+	    totalPoints = 0; // Reset total points
 
-            // Display total points
-            document.getElementById('result').innerText = `Total Points: ${totalPoints}`;
+	    // Main Tasks Points
+	    totalPoints += parseFloat(document.getElementById('main-work').value) || 0;
+	    totalPoints += parseFloat(document.getElementById('main-study-lecture').value) || 0;
+	    totalPoints += parseFloat(document.getElementById('main-study-self').value) || 0;
+
+	    // Self-Care Points
+	    totalPoints += parseFloat(document.getElementById('selfcare-meditation').value) || 0;
+	    totalPoints += parseFloat(document.getElementById('selfcare-reading').value) || 0;
+	    totalPoints += parseFloat(document.getElementById('selfcare-exercise').value) || 0;
+	    totalPoints += document.getElementById('selfcare-journaling').checked ? 1 : 0;
+	    totalPoints += document.getElementById('selfcare-emotion-tracking').checked ? 1 : 0;
+
+	    // Personal Tasks Points
+	    totalPoints += document.getElementById('personal-clean-room').checked ? 1 : 0;
+	    totalPoints += document.getElementById('personal-clean-bathroom').checked ? 1 : 0;
+	    totalPoints += document.getElementById('personal-cooked-food').checked ? 1 : 0;
+	    totalPoints += document.getElementById('personal-changed-bed-sheets').checked ? 1 : 0;
+	    totalPoints += document.getElementById('personal-wash-utensils').checked ? 1 : 0;
+
+	    // Basic Tasks Points
+	    totalPoints += document.getElementById('basic-bath').checked ? 0.2 : 0;
+	    totalPoints += document.getElementById('basic-wc').checked ? 0.2 : 0;
+	    totalPoints += document.getElementById('basic-washface').checked ? 0.2 : 0;
+	    totalPoints += document.getElementById('basic-skincare-day').checked ? 0.2 : 0;
+	    totalPoints += document.getElementById('basic-skincare-night').checked ? 0.2 : 0;
+
+	    // Routine Rituals Points
+	    totalPoints += document.getElementById('routine-morning').checked ? 0.5 : 0;
+	    totalPoints += document.getElementById('routine-afternoon').checked ? 0.5 : 0;
+	    totalPoints += document.getElementById('routine-night').checked ? 0.5 : 0;
+
+	    document.getElementById('result').innerText = `Total Points: ${totalPoints}`;
+	}
+
+function copyAsCommand() {
+    const commandText = `/addpoints points:${totalPoints} user:nill`;
+    const tempInput = document.createElement('textarea');
+    tempInput.value = commandText;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    alert('Command copied to clipboard!');
+}
+
+
+
+        function resetForm() {
+            document.querySelectorAll('select').forEach(select => select.value = '0');
+            document.querySelectorAll('input[type=checkbox]').forEach(checkbox => checkbox.checked = false);
+            document.getElementById('result').innerText = 'Total Points: 0';
         }
     </script>
 </body>
 </html>
+
