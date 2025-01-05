@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Calculator</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Darkmode.js/1.0.1/darkmode-js.js" integrity="sha512-2A4H2kCRSqakXd01yA5XsWzr9DtnHqCMvuerx/Fi3x7F+iHj1VNxlm6IFR+qOLVqBaIeagKN4DSHAj0YanTH8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
@@ -134,20 +133,33 @@
                         <option value="5">Gym-30 mins (5 pts)</option>
                         <option value="5">Yoga-30 mins (5 pt)</option>
                         <option value="5">Others-30 mins (5 pt)</option>
-                        
                     </select>
+                </div>
+                <div class="mb-3">
+                    <label for="selfcare-plan" class="form-label">Planning:</label>
+                    <select id="selfcare-plan" class="form-select">
+                        <option value="0">Select</option>
+                        <option value="2">At Night (5 pt)</option>
+                        <option value="3">During Day (3 pts)</option>
+                    </select>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="selfcare-update-plan">
+                    <label class="form-check-label" for="selfcare-update-plan">
+                        Update Plan/ToDo/Goals (2 Pts)
+                    </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="selfcare-journaling">
                     <label class="form-check-label" for="selfcare-journaling">
-                        Journaling 
+                        Journaling (5 Pts)
                         <span class="text-muted">(Writing about your day, emotions, and thoughts)</span>
                     </label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="selfcare-emotion-tracking">
                     <label class="form-check-label" for="selfcare-emotion-tracking">
-                        Emotion Tracking
+                        Emotion Tracking (3 Pts)
                     </label>
                 </div>
             </div>
@@ -165,23 +177,40 @@
                     <div class="accordion-body">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="personal-clean-room">
-                            <label class="form-check-label" for="personal-clean-room">Clean Room</label>
+                            <label class="form-check-label" for="personal-clean-room">Clean Room (5 pts)</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="personal-clean-bathroom">
-                            <label class="form-check-label" for="personal-clean-bathroom">Clean Bathroom</label>
+                            <label class="form-check-label" for="personal-clean-bathroom">Clean Bathroom (3 pts)</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="personal-cooked-food">
-                            <label class="form-check-label" for="personal-cooked-food">Cooked Food</label>
+                            <label class="form-check-label" for="personal-cooked-food">Cooked Food (5 pts)</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="personal-changed-bed-sheets">
-                            <label class="form-check-label" for="personal-changed-bed-sheets">Changed Bed Sheets</label>
+                            <label class="form-check-label" for="personal-changed-bed-sheets">Changed Bed Sheets (3 pts)</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="personal-wash-utensils">
-                            <label class="form-check-label" for="personal-wash-utensils">Wash Utensils</label>
+                            <label class="form-check-label" for="personal-wash-utensils">Wash Utensils (3 pts)</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="personal-other-1-1h">
+                            <label class="form-check-label" for="personal-other-1-1h">Other -1 (under 1h) (3 pts)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="personal-other-2-1h">
+                            <label class="form-check-label" for="personal-other-2-1h">Other -2 (under 1h) (3 pts)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="personal-other-1-2h">
+                            <label class="form-check-label" for="personal-other-1-2h">Other -2 (under 2h) (5 pts)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="personal-other-2-2h">
+                            <label class="form-check-label" for="personal-other2-2h">Other -2 (under 2h) (5 pts)</label>
                         </div>
                     </div>
                 </div>
@@ -205,24 +234,44 @@
                         <div id="basicTasksCollapse" class="accordion-collapse collapse" aria-labelledby="basicTasksHeading" data-bs-parent="#basicTasksAccordion">
                             <div class="accordion-body">
                                 <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="basic-brush">
+                                    <label class="form-check-label" for="basic-brush">Brush (0.5 pts)</label>
+                                </div>
+                                <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="basic-bath">
-                                    <label class="form-check-label" for="basic-bath">Bath</label>
+                                    <label class="form-check-label" for="basic-bath">Bath (0.5 pts)</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="basic-wc">
-                                    <label class="form-check-label" for="basic-wc">WC</label>
+                                    <label class="form-check-label" for="basic-wc">WC (0.5 pts)</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="basic-washface">
-                                    <label class="form-check-label" for="basic-washface">Wash Face</label>
+                                    <label class="form-check-label" for="basic-washface">Wash Face(0.2 pts)</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="basic-skincare-day">
-                                    <label class="form-check-label" for="basic-skincare-day">Skincare Day</label>
+                                    <label class="form-check-label" for="basic-skincare-day">Skincare Day(0.2 pts)</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="basic-skincare-night">
-                                    <label class="form-check-label" for="basic-skincare-night">Skincare Night</label>
+                                    <label class="form-check-label" for="basic-skincare-night">Skincare Night (0.2 pts)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="basic-other-1">
+                                    <label class="form-check-label" for="basic-other-1">Other-1 (0.2 Pts)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="basic-other-2">
+                                    <label class="form-check-label" for="basic-other-2">Other-2 (0.2 Pts)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="basic-other-3">
+                                    <label class="form-check-label" for="basic-other-3">Other-3 (0.2 Pts)</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="basic-other-4">
+                                    <label class="form-check-label" for="basic-other-4">Other-4 (0.2 Pts)</label>
                                 </div>
                             </div>
                         </div>
@@ -240,15 +289,15 @@
                 <p class="important-note">All tasks must be done simultaneously without skipping.</p>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="routine-morning">
-                    <label class="form-check-label" for="routine-morning">Morning Routine</label>
+                    <label class="form-check-label" for="routine-morning">Morning Routine (15 Pts)</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="routine-afternoon">
-                    <label class="form-check-label" for="routine-afternoon">Afternoon Routine</label>
+                    <label class="form-check-label" for="routine-afternoon">Afternoon Routine(8 Pts)</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="routine-night">
-                    <label class="form-check-label" for="routine-night">Night Routine</label>
+                    <label class="form-check-label" for="routine-night">Night Routine(20 Pts)</label>
                 </div>
             </div>
         </div>
@@ -299,27 +348,38 @@
 	    totalPoints += parseFloat(document.getElementById('selfcare-meditation').value) || 0;
 	    totalPoints += parseFloat(document.getElementById('selfcare-reading').value) || 0;
 	    totalPoints += parseFloat(document.getElementById('selfcare-exercise').value) || 0;
-	    totalPoints += document.getElementById('selfcare-journaling').checked ? 1 : 0;
-	    totalPoints += document.getElementById('selfcare-emotion-tracking').checked ? 1 : 0;
+        totalPoints += parseFloat(document.getElementById('selfcare-plan').value) || 0;
+        totalPoints += document.getElementById('selfcare-update-plan').checked ? 2 : 0;
+	    totalPoints += document.getElementById('selfcare-journaling').checked ? 5 : 0;
+	    totalPoints += document.getElementById('selfcare-emotion-tracking').checked ? 3 : 0;
 
 	    // Personal Tasks Points
-	    totalPoints += document.getElementById('personal-clean-room').checked ? 1 : 0;
-	    totalPoints += document.getElementById('personal-clean-bathroom').checked ? 1 : 0;
-	    totalPoints += document.getElementById('personal-cooked-food').checked ? 1 : 0;
-	    totalPoints += document.getElementById('personal-changed-bed-sheets').checked ? 1 : 0;
-	    totalPoints += document.getElementById('personal-wash-utensils').checked ? 1 : 0;
+	    totalPoints += document.getElementById('personal-clean-room').checked ? 5 : 0;
+	    totalPoints += document.getElementById('personal-clean-bathroom').checked ? 3 : 0;
+	    totalPoints += document.getElementById('personal-cooked-food').checked ? 5 : 0;
+	    totalPoints += document.getElementById('personal-changed-bed-sheets').checked ? 3 : 0;
+	    totalPoints += document.getElementById('personal-wash-utensils').checked ? 3 : 0;
+        totalPoints += document.getElementById('personal-other-1-1h').checked ? 3 : 0;
+        totalPoints += document.getElementById('personal-other-2-1h').checked ? 3 : 0;
+        totalPoints += document.getElementById('personal-other-1-12h').checked ? 5 : 0;
+        totalPoints += document.getElementById('personal-other-2-2h').checked ? 5 : 0;
 
 	    // Basic Tasks Points
-	    totalPoints += document.getElementById('basic-bath').checked ? 0.2 : 0;
-	    totalPoints += document.getElementById('basic-wc').checked ? 0.2 : 0;
+        totalPoints += document.getElementById('basic-brush').checked ? 0.5 : 0;
+	    totalPoints += document.getElementById('basic-bath').checked ? 0.5 : 0;
+	    totalPoints += document.getElementById('basic-wc').checked ? 0.5 : 0;
 	    totalPoints += document.getElementById('basic-washface').checked ? 0.2 : 0;
 	    totalPoints += document.getElementById('basic-skincare-day').checked ? 0.2 : 0;
 	    totalPoints += document.getElementById('basic-skincare-night').checked ? 0.2 : 0;
+        totalPoints += document.getElementById('basic-other-1').checked ? 0.2 : 0;
+        totalPoints += document.getElementById('basic-other-2').checked ? 0.2 : 0;
+        totalPoints += document.getElementById('basic-other-3').checked ? 0.2 : 0;
+        totalPoints += document.getElementById('basic-other-4').checked ? 0.2 : 0;
 
 	    // Routine Rituals Points
-	    totalPoints += document.getElementById('routine-morning').checked ? 0.5 : 0;
-	    totalPoints += document.getElementById('routine-afternoon').checked ? 0.5 : 0;
-	    totalPoints += document.getElementById('routine-night').checked ? 0.5 : 0;
+	    totalPoints += document.getElementById('routine-morning').checked ? 15 : 0;
+	    totalPoints += document.getElementById('routine-afternoon').checked ? 8 : 0;
+	    totalPoints += document.getElementById('routine-night').checked ? 20 : 0;
 
 	    document.getElementById('result').innerText = `Total Points: ${totalPoints}`;
 	}
@@ -345,4 +405,5 @@ function copyAsCommand() {
     </script>
 </body>
 </html>
+
 
