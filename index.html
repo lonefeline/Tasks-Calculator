@@ -16,10 +16,13 @@
             font-size: 0.9em;
             color: gray;
         }
+        a{
+            color: white;
+        }
     </style>
 </head>
-<body class="text-bg-dark-emphasis">
-    <header class="d-flex justify-content-between align-items-center p-3 text-bg-secondary-emphasis">
+<body class="text-bg-dark">
+    <header class="d-flex justify-content-between align-items-center p-3 text-bg-secondary">
         <a href="#" class="text-decoration-none">Adopt Don't Shop</a>
         <div>
             <a href="https://github.com/lonefeline/Tasks-Calculator" class="text-decoration-none me-3">Guide</a>
@@ -170,13 +173,13 @@
         <!-- Personal Tasks Section -->
         <div class="accordion text-bg-dark" id="personalTasksAccordion">
             <div class="accordion-item">
-                <h2 class="accordion-header" id="personalTasksHeading">
+                <h2 class="accordion-header text-bg-dark" id="personalTasksHeading">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#personalTasksCollapse" aria-expanded="false" aria-controls="personalTasksCollapse">
                         Personal Tasks
                     </button>
                 </h2>
-                <div id="personalTasksCollapse" class="accordion-collapse collapse" aria-labelledby="personalTasksHeading" data-bs-parent="#personalTasksAccordion">
-                    <div class="accordion-body">
+                <div id="personalTasksCollapse" class="accordion-collapse collapse text-bg-dark"  aria-labelledby="personalTasksHeading" data-bs-parent="#personalTasksAccordion">
+                    <div class="accordion-body text-bg-dark ">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="personal-clean-room">
                             <label class="form-check-label" for="personal-clean-room">Clean Room (5 pts)</label>
@@ -222,19 +225,19 @@
         <!-- Basic Tasks Section -->
         <div class="card mb-4 text-bg-dark">
             <div class="card-body">
-                <h2 class="card-title">Basic Tasks 
+                <h2 class="card-title ">Basic Tasks 
                     <i class="info-icon bi bi-info-circle" data-bs-toggle="modal" data-bs-target="#basicTasksInfoModal"></i>
                 </h2>
                 <p class="important-note">Only do it if you cannot do without accountability to keep it fair.</p>
-                <div class="accordion" id="basicTasksAccordion">
+                <div class="accordion text-bg-dark" id="basicTasksAccordion">
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="basicTasksHeading">
+                        <h2 class="accordion-header text-bg-dark" id="basicTasksHeading">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#basicTasksCollapse" aria-expanded="false" aria-controls="basicTasksCollapse">
                                 Basic Tasks
                             </button>
                         </h2>
-                        <div id="basicTasksCollapse" class="accordion-collapse collapse" aria-labelledby="basicTasksHeading" data-bs-parent="#basicTasksAccordion">
-                            <div class="accordion-body">
+                        <div id="basicTasksCollapse" class="accordion-collapse collapse text-bg-dark" aria-labelledby="basicTasksHeading" data-bs-parent="#basicTasksAccordion">
+                            <div class="accordion-body text-bg-dark">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="basic-brush">
                                     <label class="form-check-label" for="basic-brush">Brush (0.5 pts)</label>
