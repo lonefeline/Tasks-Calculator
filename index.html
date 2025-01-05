@@ -311,7 +311,7 @@
         </div>
 
         <!-- Result Display -->
-        <div class="result text-center mt-4" id="result">Total Points: 0</div>
+        <div class="result text-center mt-4" id="result h-2">Total Points: 0</div>
     </div>
 
     <!-- Info Modals -->
@@ -386,7 +386,7 @@
 	}
 
 function copyAsCommand() {
-    const commandText = `/addpoints points:${totalPoints} user:nill`;
+    const commandText = `/addpoints points:${totalPoints}`;
     const tempInput = document.createElement('textarea');
     tempInput.value = commandText;
     document.body.appendChild(tempInput);
