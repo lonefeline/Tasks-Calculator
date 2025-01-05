@@ -1,4 +1,4 @@
-https://imgur.com/a/dOb8COHhttps://imgur.com/a/dOb8COH
+https://imgur.com/a/dOb8COH
 
 # Task Categorization Overview
 
